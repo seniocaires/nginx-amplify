@@ -33,3 +33,6 @@ docker run -it --rm -p 80:80 --hostname Loadbalancer seniocaires/amplify
 
 > É importante definir os valores API_KEY, AMPLIFY_IMAGENAME e --hostname.  Estes valores além de conectar corretamente na sua conta do Amplify, também relacionará corretamente os containers com as instâncias.  Mesmo que um container seja destruído e reconstruído, as métricas serão enviadas para a mesma instância sem criar uma nova.
  
+ ### Links
+ 
+ [Amplify](https://amplify.nginx.com)
