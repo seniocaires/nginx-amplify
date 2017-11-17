@@ -17,21 +17,20 @@ git clone https://github.com/seniocaires/nginx-amplify.git
 #### Faça o build da Imagem Docker.  
 
 ```
-docker build --build-arg API_KEY=Preencha --build-arg AMPLIFY_IMAGENAME=seniocaires_amplify -t seniocaires/amplify .
+docker build --build-arg API_KEY=Preencha --build-arg -t seniocaires/amplify .
 ```
 
 #### Environments:
 
 API_KEY=Chave de acesso da sua conta no Amplify  
-AMPLIFY_IMAGENAME=Nome que identifique a imagem dos containers
 
 #### Inicie os containers
 
 ```
-docker run -it --rm -p 80:80 --hostname Loadbalancer seniocaires/amplify
+docker run -it --rm -p 80:80 --hostname Loadbalancer -e API_KEY=Opcional -e IMAGE_NAME=Opcional seniocaires/amplify
 ```
 
-> É importante definir os valores API_KEY, AMPLIFY_IMAGENAME e --hostname.  Estes valores além de conectar corretamente na sua conta do Amplify, também relacionará corretamente os containers com as instâncias.  Mesmo que um container seja destruído e reconstruído, as métricas serão enviadas para a mesma instância sem criar uma nova.
+> Os valores API_KEY, IMAGENAME e --hostname são opcionais. API_KEY foi definida durante o build da imagem. Caso informe algum valor para IMAGE_NAME, as métricas de todos os containers com o referido valor serão agregados à mesma instância (system) no Amplify. 
  
  ### Links
  
